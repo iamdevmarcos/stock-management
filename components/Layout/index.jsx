@@ -1,6 +1,8 @@
 import { Container, LeftSide, RightSide } from "./styles";
 import Head from "next/head";
 
+import Menu from "../Menu";
+
 export default function Layout({ children }) {
   return (
     <>
@@ -8,7 +10,9 @@ export default function Layout({ children }) {
         <title>NextJS - Crud</title>
       </Head>
       <Container>
-        <LeftSide>MENU</LeftSide>
+        <LeftSide>
+          <Menu />
+        </LeftSide>
         <RightSide>{children}</RightSide>
       </Container>
     </>
