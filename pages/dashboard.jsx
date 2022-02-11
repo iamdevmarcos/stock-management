@@ -23,18 +23,14 @@ import {
 } from "@chakra-ui/react";
 import {
   FiHome,
-  FiPieChart,
-  FiDollarSign,
+  FiAlignJustify,
+  FiCoffee,
   FiBox,
   FiCalendar,
   FiChevronDown,
   FiChevronUp,
-  FiPlus,
-  FiCreditCard,
-  FiSearch,
-  FiBell,
+  FiGithub,
 } from "react-icons/fi";
-import MyChart from "../components/MyChart";
 
 export default function Dashboard() {
   const [display, setDisplay] = useState("hide");
@@ -79,26 +75,26 @@ export default function Dashboard() {
               </Flex>
               <Flex className="sidebar-items">
                 <Link>
-                  <Icon as={FiPieChart} fontSize="2xl" />
+                  <Icon as={FiAlignJustify} fontSize="2xl" />
                 </Link>
                 <Link _hover={{ textDecor: "none" }}>
-                  <Text>Credit</Text>
+                  <Text>Produtos</Text>
                 </Link>
               </Flex>
               <Flex className="sidebar-items">
                 <Link>
-                  <Icon as={FiDollarSign} fontSize="2xl" />
+                  <Icon as={FiCoffee} fontSize="2xl" />
                 </Link>
                 <Link _hover={{ textDecor: "none" }}>
-                  <Text>Wallet</Text>
+                  <Text>Sobre</Text>
                 </Link>
               </Flex>
               <Flex className="sidebar-items">
                 <Link>
-                  <Icon as={FiBox} fontSize="2xl" />
+                  <Icon as={FiGithub} fontSize="2xl" />
                 </Link>
                 <Link _hover={{ textDecor: "none" }}>
-                  <Text>Services</Text>
+                  <Text>Github</Text>
                 </Link>
               </Flex>
             </Flex>
@@ -119,19 +115,60 @@ export default function Dashboard() {
         minH="100vh"
         background="#fff"
       >
-        <Heading fontWeight="normal" mb={10} letterSpacing="tight">
+        <Heading fontWeight="normal" mb={12} letterSpacing="tight">
           Bem-vindo de volta,{" "}
           <Flex fontWeight="bold" display="inline-flex">
-            Marcos
+            Marcos 👋
           </Flex>
         </Heading>
-        <Text color="gray" fontSize="sm">
-          My Balance
-        </Text>
-        <Text fontWeight="bold" fontSize="2xl" mb={7}>
-          $5,750.20
-        </Text>
-        <MyChart />
+        <Flex flexDir="row">
+          <Flex
+            flexDir="column"
+            padding="5"
+            marginRight={5}
+            background="#020202"
+            borderRadius={10}
+            minW="150px"
+          >
+            <Text color="#ccc" fontSize="sm">
+              Receitas
+            </Text>
+            <Text color="#fff" fontWeight="bold" fontSize="2xl">
+              R$ 2.000
+            </Text>
+          </Flex>
+          <Flex
+            flexDir="column"
+            padding="5"
+            marginRight={5}
+            background="#020202"
+            borderRadius={10}
+            minW="150px"
+          >
+            <Text color="#ccc" fontSize="sm">
+              Despesas
+            </Text>
+            <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
+              R$ 500
+            </Text>
+          </Flex>
+          <Flex
+            flexDir="column"
+            padding="5"
+            marginRight={5}
+            background="#020202"
+            borderRadius={10}
+            minW="150px"
+          >
+            <Text color="#ccc" fontSize="sm">
+              Balanço
+            </Text>
+            <Text color="#fff" fontWeight="bold" fontSize="2xl">
+              R$ 1.500
+            </Text>
+          </Flex>
+        </Flex>
+
         <Flex justifyContent="space-between" mt={8}>
           <Flex align="flex-end">
             <Heading as="h2" size="lg" letterSpacing="tight">
