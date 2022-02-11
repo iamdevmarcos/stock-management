@@ -1,7 +1,8 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 a {
@@ -33,7 +34,7 @@ a {
 }
 
 .sidebar-items:hover svg {
-  color: #B57295;
+  color: #b57295;
 }
 
 .sidebar-items:hover p {
@@ -45,5 +46,5 @@ a {
 }
 
 .active-icon {
-  color: #B57295 !important;
+  color: #b57295 !important;
 }
