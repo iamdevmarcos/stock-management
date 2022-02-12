@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, reset } from "../store/slices/countSlice";
+
 import {
   Flex,
   Heading,
@@ -33,6 +36,9 @@ import {
 } from "react-icons/fi";
 
 export default function Dashboard() {
+  const state = useSelector((state) => state.total);
+  const dispatch = useDispatch();
+
   const [display, setDisplay] = useState("hide");
 
   const handleShow = () => {
@@ -42,6 +48,8 @@ export default function Dashboard() {
       setDisplay("show");
     }
   };
+
+  useEffect(() => console.log(state), []);
 
   return (
     <Flex h="100vh" flexDir="row" overflow="hidden" maxW="2000px">
@@ -164,7 +172,7 @@ export default function Dashboard() {
               Balanço
             </Text>
             <Text color="#fff" fontWeight="bold" fontSize="2xl">
-              R$ 1.500
+              R$ {state}
             </Text>
           </Flex>
         </Flex>
