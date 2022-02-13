@@ -1,35 +1,7 @@
-import {
-  Flex,
-  Heading,
-  Avatar,
-  AvatarGroup,
-  Text,
-  Icon,
-  IconButton,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Divider,
-  Link,
-  Box,
-  Button,
-  Input,
-  InputGroup,
-  InputLeftElement,
-} from "@chakra-ui/react";
-import {
-  FiHome,
-  FiAlignJustify,
-  FiCoffee,
-  FiBox,
-  FiCalendar,
-  FiChevronDown,
-  FiChevronUp,
-  FiGithub,
-} from "react-icons/fi";
+import { Flex, Heading, Text, IconButton } from "@chakra-ui/react";
+import { FiCalendar } from "react-icons/fi";
+
+import TableArea from "./TableArea";
 
 export default function ContentArea() {
   return (
@@ -108,41 +80,7 @@ export default function ContentArea() {
       </Flex>
       <Flex flexDir="column">
         <Flex overflow="auto">
-          <Table variant="unstyled" mt={4}>
-            <Thead>
-              <Tr color="gray">
-                <Th>Nome da Transação</Th>
-                <Th>Categoria</Th>
-                <Th isNumeric>Cashback</Th>
-                <Th isNumeric>Amount</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>
-                  <Flex align="center">
-                    <Avatar size="sm" mr={2} src="amazon.jpeg" />
-                    <Flex flexDir="column">
-                      <Heading size="sm" letterSpacing="tight">
-                        Amazon
-                      </Heading>
-                      <Text fontSize="sm" color="gray">
-                        Apr 24, 2021 at 1:40pm
-                      </Text>
-                    </Flex>
-                  </Flex>
-                </Td>
-                <Td>Electronic Devices</Td>
-                <Td isNumeric>+$2</Td>
-                <Td isNumeric>
-                  <Text fontWeight="bold" display="inline-table">
-                    -$242
-                  </Text>
-                  .00
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+          <TableArea />
         </Flex>
       </Flex>
     </Flex>

@@ -1,14 +1,5 @@
 import { Flex, Heading, Avatar, Text, Icon, Link } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiAlignJustify,
-  FiCoffee,
-  FiBox,
-  FiCalendar,
-  FiChevronDown,
-  FiChevronUp,
-  FiGithub,
-} from "react-icons/fi";
+import { FiHome, FiAlignJustify, FiCoffee, FiGithub } from "react-icons/fi";
 
 export default function Menu() {
   return (
