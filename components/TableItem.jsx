@@ -1,6 +1,11 @@
-import { Tr, Td, Flex, Avatar, Heading, Text } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { del } from "../store/slices/productSlice";
+
+import { Tr, Td, Flex, Avatar, Heading, Text, Button } from "@chakra-ui/react";
 
 export default function TableItem({ data }) {
+  const dispatch = useDispatch();
+
   return (
     <Tr>
       <Td>
@@ -17,12 +22,16 @@ export default function TableItem({ data }) {
         </Flex>
       </Td>
       <Td>Electronic Devices</Td>
-      <Td isNumeric>+$2</Td>
       <Td isNumeric>
         <Text fontWeight="bold" display="inline-table">
           -$242
         </Text>
         .00
+      </Td>
+      <Td>
+        <Button onClick={() => dispatch(del({ id: data.id }))}>
+          [ DELETAR ]
+        </Button>
       </Td>
     </Tr>
   );

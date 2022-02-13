@@ -1,7 +1,7 @@
 const data = [
-  { productName: "burguer" },
-  { productName: "test" },
-  { productName: "123" },
+  { id: 1, productName: "burguer" },
+  { id: 2, productName: "test" },
+  { id: 3, productName: "123" },
 ];
 
 export default data;
