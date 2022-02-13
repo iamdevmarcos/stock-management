@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { del } from "../store/slices/productSlice";
 
+import { formatCurrentMonth } from "../utils/dateUtil";
+
 import {
   Tr,
   Td,
@@ -31,15 +33,17 @@ export default function TableItem({ data }) {
               {data.productName}
             </Heading>
             <Text fontSize="sm" color="gray">
-              Apr 24, 2021 at 1:40pm
+              {formatCurrentMonth(data.dateMade)}
             </Text>
           </Flex>
         </Flex>
       </Td>
-      <Td>{data.id}</Td>
+      <Td>
+        <Flex>{data.category}</Flex>
+      </Td>
       <Td isNumeric>
         <Text fontWeight="bold" display="inline-table">
-          R$ 242,00
+          R$ {data.totalValue.toFixed(2)}
         </Text>
       </Td>
       <Td>
