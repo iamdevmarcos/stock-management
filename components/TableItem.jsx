@@ -36,7 +36,7 @@ export default function TableItem({ data }) {
           </Flex>
         </Flex>
       </Td>
-      <Td>Electronic Devices</Td>
+      <Td>{data.id}</Td>
       <Td isNumeric>
         <Text fontWeight="bold" display="inline-table">
           R$ 242,00
