@@ -12,7 +12,7 @@ const data = [
     id: uuid(),
     productName: "second test",
     category: "Venda",
-    totalValue: 249,
+    totalValue: 39,
     dateMade: "02-2021",
   },
   {

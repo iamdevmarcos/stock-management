@@ -1,17 +1,21 @@
-import React from "redux";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { insert, order } from "../store/slices/productSlice";
-
 import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
 
 import TableArea from "./TableArea";
-
 import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
 export default function ContentArea() {
-  const currentDate = getCurrentDate();
+  const [revenue, setRevenue] = useState(0);
+  const [expense, setExpense] = useState(0);
+  const [balance, setBalance] = useState(0);
+
+  const state = useSelector((state) => state.product);
   const dispatch = useDispatch();
+
+  const currentDate = getCurrentDate();
 
   const handleAddProduct = () => {
     dispatch(
@@ -23,6 +27,11 @@ export default function ContentArea() {
       })
     );
   };
+
+  // WIP
+  // useEffect(() => {
+
+  // }, []);
 
   return (
     <Flex
@@ -52,7 +61,7 @@ export default function ContentArea() {
             Receitas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ 2.000
+            R$ {revenue}
           </Text>
         </Flex>
         <Flex
@@ -67,7 +76,7 @@ export default function ContentArea() {
             Despesas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
-            R$ 500
+            R$ {expense}
           </Text>
         </Flex>
         <Flex
@@ -82,7 +91,7 @@ export default function ContentArea() {
             Balanço
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ 1.500
+            R$ {balance}
           </Text>
         </Flex>
       </Flex>
