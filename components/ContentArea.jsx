@@ -1,13 +1,13 @@
 import React from "redux";
 import { useDispatch } from "react-redux";
-import { insert } from "../store/slices/productSlice";
+import { insert, order } from "../store/slices/productSlice";
 
-import { Flex, Heading, Text, IconButton } from "@chakra-ui/react";
-import { FiPlus } from "react-icons/fi";
+import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
 
 import TableArea from "./TableArea";
 
-import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
+import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
+import { FiPlus } from "react-icons/fi";
 
 export default function ContentArea() {
   const currentDate = getCurrentDate();
@@ -96,7 +96,14 @@ export default function ContentArea() {
             {formatCurrentMonth(currentDate)}
           </Text>
         </Flex>
-        <IconButton icon={<FiPlus />} onClick={handleAddProduct} />
+        <Flex gap={10}>
+          <Button onClick={() => dispatch(order())}>
+            <Text fontWeight="normal" fontSize="16">
+              ORDENAR [A-Z]
+            </Text>
+          </Button>
+          <IconButton icon={<FiPlus />} onClick={handleAddProduct} />
+        </Flex>
       </Flex>
       <Flex flexDir="column">
         <Flex overflow="auto">
