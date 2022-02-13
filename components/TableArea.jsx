@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Table, Thead, Tbody, Tr, Th } from "@chakra-ui/react";
+import { Table, Thead, Tbody, Tr, Th, Flex, Text } from "@chakra-ui/react";
 
 import TableItem from "./TableItem";
 
@@ -19,9 +19,18 @@ export default function TableArea() {
         </Tr>
       </Thead>
       <Tbody>
-        {list.map((item, index) => (
-          <TableItem key={index} data={item} />
-        ))}
+        {list.length === 0 && (
+          <Flex fontSize="20">
+            <Text>Nenhuma transação no momento.</Text>
+          </Flex>
+        )}
+        {list.length !== 0 && (
+          <>
+            {list.map((item, index) => (
+              <TableItem key={index} data={item} />
+            ))}
+          </>
+        )}
       </Tbody>
     </Table>
   );
