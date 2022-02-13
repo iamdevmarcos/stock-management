@@ -19,7 +19,7 @@ export default function Menu() {
             alignSelf="center"
             letterSpacing="tight"
           >
-            Rise.
+            Stock.
           </Heading>
           <Flex flexDir="column" align="flex-start" justifyContent="center">
             <Flex className="sidebar-items">
