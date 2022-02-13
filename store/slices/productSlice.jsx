@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const data = [{ productName: "burguer" }, { productName: "test" }];
+import data from "../../data/product";
 
 const slice = createSlice({
   name: "product",
