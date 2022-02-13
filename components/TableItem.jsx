@@ -1,6 +1,6 @@
-import { Flex, Heading, Avatar, Text, Tr, Td } from "@chakra-ui/react";
+import { Tr, Td, Flex, Avatar, Heading, Text } from "@chakra-ui/react";
 
-export default function TableItem() {
+export default function TableItem({ data }) {
   return (
     <Tr>
       <Td>
@@ -8,7 +8,7 @@ export default function TableItem() {
           <Avatar size="sm" mr={2} src="amazon.jpeg" />
           <Flex flexDir="column">
             <Heading size="sm" letterSpacing="tight">
-              New Item
+              {data.productName}
             </Heading>
             <Text fontSize="sm" color="gray">
               Apr 24, 2021 at 1:40pm
