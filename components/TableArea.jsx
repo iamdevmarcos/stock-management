@@ -14,8 +14,8 @@ export default function TableArea() {
         <Tr color="gray">
           <Th>Nome da Transação</Th>
           <Th>Categoria</Th>
-          <Th isNumeric>Cashback</Th>
-          <Th isNumeric>Amount</Th>
+          <Th isNumeric>Valor</Th>
+          <Th isNumeric>Ações</Th>
         </Tr>
       </Thead>
       <Tbody>

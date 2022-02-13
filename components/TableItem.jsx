@@ -1,16 +1,31 @@
 import { useDispatch } from "react-redux";
 import { del } from "../store/slices/productSlice";
 
-import { Tr, Td, Flex, Avatar, Heading, Text, Button } from "@chakra-ui/react";
+import {
+  Tr,
+  Td,
+  Flex,
+  Heading,
+  Text,
+  Button,
+  IconButton,
+} from "@chakra-ui/react";
+import { FiLayers } from "react-icons/fi";
 
 export default function TableItem({ data }) {
   const dispatch = useDispatch();
+
+  const handleDelItem = () => {
+    if (confirm("Deletar este item")) {
+      dispatch(del({ id: data.id }));
+    }
+  };
 
   return (
     <Tr>
       <Td>
         <Flex align="center">
-          <Avatar size="sm" mr={2} src="amazon.jpeg" />
+          <IconButton icon={<FiLayers />} mr={5} />
           <Flex flexDir="column">
             <Heading size="sm" letterSpacing="tight">
               {data.productName}
@@ -24,14 +39,11 @@ export default function TableItem({ data }) {
       <Td>Electronic Devices</Td>
       <Td isNumeric>
         <Text fontWeight="bold" display="inline-table">
-          -$242
+          R$ 242,00
         </Text>
-        .00
       </Td>
       <Td>
-        <Button onClick={() => dispatch(del({ id: data.id }))}>
-          [ DELETAR ]
-        </Button>
+        <Button onClick={handleDelItem}>❌</Button>
       </Td>
     </Tr>
   );

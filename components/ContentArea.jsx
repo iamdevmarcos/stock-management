@@ -1,5 +1,5 @@
 import { Flex, Heading, Text, IconButton } from "@chakra-ui/react";
-import { FiCalendar } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 
 import TableArea from "./TableArea";
 
@@ -80,7 +80,7 @@ export default function ContentArea() {
             {formatCurrentMonth(currentDate)}
           </Text>
         </Flex>
-        <IconButton icon={<FiCalendar />} />
+        <IconButton icon={<FiPlus />} />
       </Flex>
       <Flex flexDir="column">
         <Flex overflow="auto">
