@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, reset } from "../store/slices/countSlice";
+import { increment, decrement } from "../store/slices/countSlice";
 
 import {
   Flex,
@@ -36,7 +36,7 @@ import {
 } from "react-icons/fi";
 
 export default function Dashboard() {
-  const state = useSelector((state) => state.total);
+  const state = useSelector((state) => state.count.total);
   const dispatch = useDispatch();
 
   const [display, setDisplay] = useState("hide");
@@ -48,8 +48,6 @@ export default function Dashboard() {
       setDisplay("show");
     }
   };
-
-  useEffect(() => console.log(state), []);
 
   return (
     <Flex h="100vh" flexDir="row" overflow="hidden" maxW="2000px">
@@ -175,6 +173,13 @@ export default function Dashboard() {
               R$ {state}
             </Text>
           </Flex>
+
+          {/* Tests area */}
+          <Flex gap={10}>
+            <Button onClick={() => dispatch(increment())}>[ ADICIONAR ]</Button>
+            <Button onClick={() => dispatch(decrement())}>[ REMOVER ]</Button>
+          </Flex>
+          {/* End Test Area */}
         </Flex>
 
         <Flex justifyContent="space-between" mt={8}>
