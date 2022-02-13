@@ -57,7 +57,7 @@ export default function Menu() {
           </Flex>
         </Flex>
         <Flex flexDir="column" alignItems="center" mb={10} mt={5}>
-          <Avatar my={2} src="avatar-1.jpg" />
+          <Avatar my={3} src="profile.png" />
           <Text textAlign="center">Marcos Andre</Text>
         </Flex>
       </Flex>
