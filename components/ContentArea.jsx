@@ -3,7 +3,11 @@ import { FiCalendar } from "react-icons/fi";
 
 import TableArea from "./TableArea";
 
+import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
+
 export default function ContentArea() {
+  const currentDate = getCurrentDate();
+
   return (
     <Flex
       w="85%"
@@ -73,7 +77,7 @@ export default function ContentArea() {
             Transações
           </Heading>
           <Text fontSize="small" color="gray" ml={4}>
-            Apr 2021
+            {formatCurrentMonth(currentDate)}
           </Text>
         </Flex>
         <IconButton icon={<FiCalendar />} />
