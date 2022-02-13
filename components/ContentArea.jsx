@@ -1,3 +1,7 @@
+import React from "redux";
+import { useDispatch } from "react-redux";
+import { insert } from "../store/slices/productSlice";
+
 import { Flex, Heading, Text, IconButton } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
@@ -7,6 +11,18 @@ import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
 
 export default function ContentArea() {
   const currentDate = getCurrentDate();
+  const dispatch = useDispatch();
+
+  const handleAddProduct = () => {
+    dispatch(
+      insert({
+        productName: "inserido manual",
+        category: "venda",
+        totalValue: 129,
+        dateMade: currentDate,
+      })
+    );
+  };
 
   return (
     <Flex
@@ -80,7 +96,7 @@ export default function ContentArea() {
             {formatCurrentMonth(currentDate)}
           </Text>
         </Flex>
-        <IconButton icon={<FiPlus />} />
+        <IconButton icon={<FiPlus />} onClick={handleAddProduct} />
       </Flex>
       <Flex flexDir="column">
         <Flex overflow="auto">

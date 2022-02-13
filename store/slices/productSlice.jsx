@@ -8,11 +8,14 @@ const slice = createSlice({
   initialState: data,
   reducers: {
     insert: (state, action) => {
-      if (action.payload.name) {
+      if (action.payload.productName) {
         let newState = [...state];
         newState.push({
           id: uuid(),
-          productName: action.payload.name,
+          productName: action.payload.productName,
+          category: action.payload.category,
+          totalValue: action.payload.totalValue,
+          dateMade: action.payload.dateMade,
         });
         return newState;
       }
