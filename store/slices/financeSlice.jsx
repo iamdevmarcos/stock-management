@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "finance",
   initialState: {
-    revenue: 3,
-    expense: 5,
+    revenue: 0,
+    expense: 0,
   },
   reducers: {
     setRevenue: (state, action) => {
