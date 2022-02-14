@@ -64,7 +64,7 @@ export default function ContentArea() {
             Receitas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ {finance.revenue}
+            R$ {finance.revenue.toFixed(2)}
           </Text>
         </Flex>
         <Flex
@@ -79,7 +79,7 @@ export default function ContentArea() {
             Despesas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
-            R$ {finance.expense}
+            R$ {finance.expense.toFixed(2)}
           </Text>
         </Flex>
         <Flex
@@ -94,7 +94,7 @@ export default function ContentArea() {
             Balanço
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ {finance.revenue - finance.expense}
+            R$ {(finance.revenue - finance.expense).toFixed(2)}
           </Text>
         </Flex>
       </Flex>

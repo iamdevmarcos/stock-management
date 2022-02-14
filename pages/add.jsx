@@ -5,7 +5,7 @@ import { insert } from "../store/slices/productSlice";
 import { getCurrentDate } from "../utils/dateUtil";
 
 import Head from "next/head";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Menu from "../components/Menu";
 
 import {
@@ -23,7 +23,7 @@ import {
 export default function Add() {
   const [productName, setProductName] = useState("");
   const [productCategory, setProductCategory] = useState("");
-  const [productValue, setProductValue] = useState(0);
+  const [productValue, setProductValue] = useState("");
 
   const dispatch = useDispatch();
   const currentDate = getCurrentDate();

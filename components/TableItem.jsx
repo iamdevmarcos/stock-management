@@ -27,7 +27,6 @@ export default function TableItem({ data }) {
     <Tr>
       <Td>
         <Flex align="center">
-          <IconButton icon={<FiLayers />} mr={5} />
           <Flex flexDir="column">
             <Heading size="sm" letterSpacing="tight">
               {data.productName}
@@ -47,6 +46,9 @@ export default function TableItem({ data }) {
         </Text>
       </Td>
       <Td>
+        <Button onClick={handleDelItem} mr={5}>
+          ❌
+        </Button>
         <Button onClick={handleDelItem}>❌</Button>
       </Td>
     </Tr>
