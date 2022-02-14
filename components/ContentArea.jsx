@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { insert, order } from "../store/slices/productSlice";
 import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
@@ -8,10 +8,6 @@ import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
 export default function ContentArea() {
-  const [revenue, setRevenue] = useState(0);
-  const [expense, setExpense] = useState(0);
-  const [balance, setBalance] = useState(0);
-
   const state = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
@@ -27,11 +23,6 @@ export default function ContentArea() {
       })
     );
   };
-
-  // WIP
-  // useEffect(() => {
-
-  // }, []);
 
   return (
     <Flex
@@ -61,7 +52,7 @@ export default function ContentArea() {
             Receitas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ {revenue}
+            R$ 1
           </Text>
         </Flex>
         <Flex
@@ -76,7 +67,7 @@ export default function ContentArea() {
             Despesas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
-            R$ {expense}
+            R$ 2
           </Text>
         </Flex>
         <Flex
@@ -91,7 +82,7 @@ export default function ContentArea() {
             Balanço
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ {balance}
+            R$ 3
           </Text>
         </Flex>
       </Flex>
