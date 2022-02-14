@@ -20,6 +20,15 @@ const slice = createSlice({
         return newState;
       }
     },
+    edit: (state, action) => {
+      if (state[action.payload.id]) {
+        state[action.payload.id] = {
+          productName: action.payload.productName,
+          category: action.payload.category,
+          totalValue: action.payload.totalValue,
+        };
+      }
+    },
     del: (state, action) => {
       if (action.payload.id) {
         let newState = [...state];
@@ -37,5 +46,5 @@ const slice = createSlice({
   },
 });
 
-export const { insert, del, order } = slice.actions;
+export const { insert, edit, del, order } = slice.actions;
 export default slice.reducer;
