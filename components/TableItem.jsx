@@ -3,6 +3,8 @@ import { del } from "../store/slices/productSlice";
 
 import { formatCurrentMonth } from "../utils/dateUtil";
 
+import Link from "next/link";
+
 import {
   Tr,
   Td,
@@ -12,7 +14,7 @@ import {
   Button,
   IconButton,
 } from "@chakra-ui/react";
-import { FiLayers } from "react-icons/fi";
+import { FiX, FiClipboard } from "react-icons/fi";
 
 export default function TableItem({ data }) {
   const dispatch = useDispatch();
@@ -46,10 +48,10 @@ export default function TableItem({ data }) {
         </Text>
       </Td>
       <Td>
-        <Button onClick={handleDelItem} mr={5}>
-          ❌
-        </Button>
-        <Button onClick={handleDelItem}>❌</Button>
+        <Link href={`/product/${data.id}`}>
+          <IconButton icon={<FiClipboard />} mr={5} />
+        </Link>
+        <IconButton icon={<FiX />} onClick={handleDelItem} />
       </Td>
     </Tr>
   );

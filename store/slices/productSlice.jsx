@@ -21,12 +21,12 @@ const slice = createSlice({
       }
     },
     edit: (state, action) => {
-      if (state[action.payload.id]) {
-        state[action.payload.id] = {
-          productName: action.payload.productName,
-          category: action.payload.category,
-          totalValue: action.payload.totalValue,
-        };
+      for (let i in state) {
+        if (state[i].id === action.payload.id) {
+          state[i].productName = action.payload.productName;
+          state[i].category = action.payload.category;
+          state[i].totalValue = action.payload.totalValue;
+        }
       }
     },
     del: (state, action) => {
