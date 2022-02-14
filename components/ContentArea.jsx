@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setRevenue, setExpense } from "../store/slices/financeSlice";
-import { insert, order } from "../store/slices/productSlice";
+import { order } from "../store/slices/productSlice";
 
 import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
 
@@ -11,23 +11,14 @@ import TableArea from "./TableArea";
 import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
+import Link from "next/link";
+
 export default function ContentArea() {
   const list = useSelector((state) => state.product);
   const finance = useSelector((state) => state.finance);
   const dispatch = useDispatch();
 
   const currentDate = getCurrentDate();
-
-  const handleAddProduct = () => {
-    dispatch(
-      insert({
-        productName: "inserido manual",
-        category: "Venda",
-        totalValue: 129,
-        dateMade: currentDate,
-      })
-    );
-  };
 
   useEffect(() => {
     let revenueCount = 0;
@@ -123,7 +114,9 @@ export default function ContentArea() {
               ORDENAR [A-Z]
             </Text>
           </Button>
-          <IconButton icon={<FiPlus />} onClick={handleAddProduct} />
+          <Link href="/add">
+            <IconButton icon={<FiPlus />} />
+          </Link>
         </Flex>
       </Flex>
       <Flex flexDir="column">
