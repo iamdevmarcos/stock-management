@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { get } from "../store/slices/financeSlice";
+import { setRevenue, setExpense } from "../store/slices/financeSlice";
 import { insert, order } from "../store/slices/productSlice";
 
 import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
 
 import TableArea from "./TableArea";
+
 import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
@@ -21,12 +22,28 @@ export default function ContentArea() {
     dispatch(
       insert({
         productName: "inserido manual",
-        category: "venda",
+        category: "Venda",
         totalValue: 129,
         dateMade: currentDate,
       })
     );
   };
+
+  useEffect(() => {
+    let revenueCount = 0;
+    let expenseCount = 0;
+
+    for (let i in list) {
+      if (list[i].category === "Venda") {
+        revenueCount += list[i].totalValue;
+      } else {
+        expenseCount += list[i].totalValue;
+      }
+    }
+
+    dispatch(setRevenue(revenueCount));
+    dispatch(setExpense(expenseCount));
+  }, [list]);
 
   return (
     <Flex
@@ -56,7 +73,7 @@ export default function ContentArea() {
             Receitas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ 1
+            R$ {finance.revenue}
           </Text>
         </Flex>
         <Flex
@@ -71,7 +88,7 @@ export default function ContentArea() {
             Despesas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
-            R$ 2
+            R$ {finance.expense}
           </Text>
         </Flex>
         <Flex
@@ -86,7 +103,7 @@ export default function ContentArea() {
             Balanço
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ 3
+            R$ {finance.revenue - finance.expense}
           </Text>
         </Flex>
       </Flex>

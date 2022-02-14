@@ -7,11 +7,14 @@ const slice = createSlice({
     expense: 5,
   },
   reducers: {
-    get: (state) => {
-      alert(`REVENUE: ${state.revenue} | EXPENSE: ${state.expense}`);
+    setRevenue: (state, action) => {
+      return { ...state, revenue: action.payload };
+    },
+    setExpense: (state, action) => {
+      return { ...state, expense: action.payload };
     },
   },
 });
 
-export const { get } = slice.actions;
+export const { setRevenue, setExpense } = slice.actions;
 export default slice.reducer;
