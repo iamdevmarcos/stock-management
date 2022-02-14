@@ -93,7 +93,13 @@ export default function ContentArea() {
           <Text color="#ccc" fontSize="sm">
             Balanço
           </Text>
-          <Text color="#fff" fontWeight="bold" fontSize="2xl">
+          <Text
+            color={
+              finance.revenue - finance.expense > 1 ? "#00ff00" : "#ff0000"
+            }
+            fontWeight="bold"
+            fontSize="2xl"
+          >
             R$ {(finance.revenue - finance.expense).toFixed(2)}
           </Text>
         </Flex>
