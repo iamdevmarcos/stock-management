@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import { get } from "../store/slices/financeSlice";
 import { insert, order } from "../store/slices/productSlice";
+
 import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
 
 import TableArea from "./TableArea";
@@ -8,7 +11,8 @@ import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
 export default function ContentArea() {
-  const state = useSelector((state) => state.product);
+  const list = useSelector((state) => state.product);
+  const finance = useSelector((state) => state.finance);
   const dispatch = useDispatch();
 
   const currentDate = getCurrentDate();
