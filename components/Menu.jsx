@@ -26,34 +26,27 @@ export default function Menu() {
               <Link>
                 <Icon as={FiHome} fontSize="2xl" className="active-icon" />
               </Link>
-              <Link _hover={{ textDecor: "none" }}>
+              <Link href="/" _hover={{ textDecor: "none" }}>
                 <Text className="active">Home</Text>
-              </Link>
-            </Flex>
-            <Flex className="sidebar-items">
-              <Link>
-                <Icon as={FiAlignJustify} fontSize="2xl" />
-              </Link>
-              <Link _hover={{ textDecor: "none" }}>
-                <Text>Produtos</Text>
               </Link>
             </Flex>
             <Flex className="sidebar-items">
               <Link>
                 <Icon as={FiCoffee} fontSize="2xl" />
               </Link>
-              <Link _hover={{ textDecor: "none" }}>
+              <Link href="/about" _hover={{ textDecor: "none" }}>
                 <Text>Sobre</Text>
               </Link>
             </Flex>
-            <Flex className="sidebar-items">
-              <Link>
+            <a
+              href="https://github.com/iamdevmarcos/stock-management"
+              target="_blank"
+            >
+              <Flex className="sidebar-items">
                 <Icon as={FiGithub} fontSize="2xl" />
-              </Link>
-              <Link _hover={{ textDecor: "none" }}>
                 <Text>Github</Text>
-              </Link>
-            </Flex>
+              </Flex>
+            </a>
           </Flex>
         </Flex>
         <Flex flexDir="column" alignItems="center" mb={10} mt={5}>
