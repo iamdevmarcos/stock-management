@@ -1,5 +1,5 @@
 {
-  "name": "customer",
+  "name": "stock-management",
   "private": true,
   "scripts": {
     "dev": "next dev",
