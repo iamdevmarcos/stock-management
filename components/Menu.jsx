@@ -1,5 +1,7 @@
-import { Flex, Heading, Avatar, Text, Icon, Link } from "@chakra-ui/react";
-import { FiHome, FiAlignJustify, FiCoffee, FiGithub } from "react-icons/fi";
+import Link from "next/link";
+
+import { Flex, Heading, Avatar, Text, Icon } from "@chakra-ui/react";
+import { FiHome, FiCoffee, FiGithub } from "react-icons/fi";
 
 export default function Menu() {
   return (
@@ -23,19 +25,23 @@ export default function Menu() {
           </Heading>
           <Flex flexDir="column" align="flex-start" justifyContent="center">
             <Flex className="sidebar-items">
-              <Link>
-                <Icon as={FiHome} fontSize="2xl" className="active-icon" />
-              </Link>
-              <Link href="/" _hover={{ textDecor: "none" }}>
-                <Text className="active">Home</Text>
+              <Link href="/">
+                <Flex>
+                  <Icon as={FiHome} fontSize="2xl" />
+                  <Text color="#fff" cursor={"pointer"}>
+                    Home
+                  </Text>
+                </Flex>
               </Link>
             </Flex>
             <Flex className="sidebar-items">
-              <Link>
-                <Icon as={FiCoffee} fontSize="2xl" />
-              </Link>
-              <Link href="/about" _hover={{ textDecor: "none" }}>
-                <Text>Sobre</Text>
+              <Link href="/about">
+                <Flex>
+                  <Icon as={FiCoffee} fontSize="2xl" />
+                  <Text color="#fff" cursor={"pointer"}>
+                    Sobre
+                  </Text>
+                </Flex>
               </Link>
             </Flex>
             <a
@@ -45,7 +51,7 @@ export default function Menu() {
             >
               <Flex className="sidebar-items">
                 <Icon as={FiGithub} fontSize="2xl" />
-                <Text>Github</Text>
+                <Text color="#fff">Github</Text>
               </Flex>
             </a>
           </Flex>
