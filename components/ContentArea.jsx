@@ -24,6 +24,7 @@ export default function ContentArea() {
     let revenueCount = 0;
     let expenseCount = 0;
 
+    // filling in expense and income amount
     for (let i in list) {
       if (list[i].category === "Venda") {
         revenueCount += list[i].totalValue;
