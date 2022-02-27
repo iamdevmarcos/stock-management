@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { insert } from "../store/slices/productSlice";
-
-import { getCurrentDate } from "../utils/dateUtil";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Menu from "../components/Menu";
 
 import {
   Flex,
@@ -20,6 +15,14 @@ import {
   NumberInputField,
 } from "@chakra-ui/react";
 
+import { useDispatch } from "react-redux";
+import { insert } from "../store/slices/productSlice";
+
+import Menu from "../components/Menu";
+import { getCurrentDate } from "../utils/dateUtil";
+
+import { useMask } from "../hooks/useMask";
+
 export default function Add() {
   const [productName, setProductName] = useState("");
   const [productCategory, setProductCategory] = useState("");
@@ -28,6 +31,8 @@ export default function Add() {
   const dispatch = useDispatch();
   const currentDate = getCurrentDate();
   const router = useRouter();
+
+  const mask = useMask();
 
   const handleAddProduct = () => {
     if (productName !== "" && productCategory !== "" && productValue !== "") {
@@ -93,13 +98,12 @@ export default function Add() {
 
           <FormControl>
             <FormLabel htmlFor="product-price">Valor:</FormLabel>
-            <NumberInput max={99999} min={1} value={productValue}>
-              <NumberInputField
-                id="product-price"
-                placeholder="Valor total da transação"
-                onChange={(e) => setProductValue(e.target.value)}
-              />
-            </NumberInput>
+            <Input
+              id="product-price"
+              placeholder="Valor total da transação"
+              value={productValue}
+              onChange={(e) => setProductValue(e.target.value)}
+            />
           </FormControl>
           <br />
 
