@@ -1,14 +1,14 @@
 export const getCurrentDate = () => {
-  let now = new Date();
-  let month = now.getMonth() + 1;
-  let year = now.getFullYear();
+  const now = new Date();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
 
   return `${month}-${year}`;
 };
 
 export const formatCurrentMonth = (currentMonth) => {
-  let [month, year] = currentMonth.split("-");
-  let months = [
+  const [month, year] = currentMonth.split("-");
+  const months = [
     "Janeiro",
     "Fevereiro",
     "Março",
