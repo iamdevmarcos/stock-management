@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { del } from "../store/slices/productSlice";
 
 import { formatCurrentMonth } from "../utils/dateUtil";
+import { useMask } from "../hooks/useMask";
 
 import Link from "next/link";
 
@@ -17,6 +18,7 @@ import {
 import { FiX, FiClipboard } from "react-icons/fi";
 
 export default function TableItem({ data }) {
+  const mask = useMask();
   const dispatch = useDispatch();
 
   const handleDelItem = () => {
@@ -44,7 +46,7 @@ export default function TableItem({ data }) {
       </Td>
       <Td isNumeric>
         <Text fontWeight="bold" display="inline-table">
-          R$ {data.totalValue.toFixed(2)}
+          {mask.toBRL(data.totalValue)}
         </Text>
       </Td>
       <Td>

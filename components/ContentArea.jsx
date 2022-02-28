@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
-import { setRevenue, setExpense } from "../store/slices/financeSlice";
-import { order } from "../store/slices/productSlice";
-
-import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
-
-import TableArea from "./TableArea";
+import Link from "next/link";
 
 import { Flex, Heading, Text, IconButton, Button } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
-import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import { setRevenue, setExpense } from "../store/slices/financeSlice";
+import { order } from "../store/slices/productSlice";
+
+import TableArea from "./TableArea";
+
+import { getCurrentDate, formatCurrentMonth } from "../utils/dateUtil";
+import { useMask } from "../hooks/useMask";
 
 export default function ContentArea() {
   const list = useSelector((state) => state.product);
@@ -19,6 +20,7 @@ export default function ContentArea() {
   const dispatch = useDispatch();
 
   const currentDate = getCurrentDate();
+  const mask = useMask();
 
   useEffect(() => {
     let revenueCount = 0;
@@ -65,7 +67,7 @@ export default function ContentArea() {
             Receitas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl">
-            R$ {finance.revenue.toFixed(2)}
+            {mask.toBRL(finance.revenue)}
           </Text>
         </Flex>
         <Flex
@@ -80,7 +82,7 @@ export default function ContentArea() {
             Despesas
           </Text>
           <Text color="#fff" fontWeight="bold" fontSize="2xl" mb={2}>
-            R$ {finance.expense.toFixed(2)}
+            {mask.toBRL(finance.expense)}
           </Text>
         </Flex>
         <Flex
@@ -101,7 +103,7 @@ export default function ContentArea() {
             fontWeight="bold"
             fontSize="2xl"
           >
-            R$ {(finance.revenue - finance.expense).toFixed(2)}
+            {mask.toBRL(finance.revenue - finance.expense)}
           </Text>
         </Flex>
       </Flex>

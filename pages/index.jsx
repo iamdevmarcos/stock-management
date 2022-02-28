@@ -1,10 +1,10 @@
 import React from "react";
+
 import Head from "next/head";
+import { Flex } from "@chakra-ui/react";
 
 import Menu from "../components/Menu";
 import ContentArea from "../components/ContentArea";
-
-import { Flex } from "@chakra-ui/react";
 
 export default function Home() {
   return (
