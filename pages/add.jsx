@@ -99,6 +99,7 @@ export default function Add() {
           <FormControl>
             <FormLabel htmlFor="product-price">Valor:</FormLabel>
             <Input
+              type="number"
               id="product-price"
               placeholder="Valor total da transação"
               value={productValue}
