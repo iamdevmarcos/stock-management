@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Stock Management
+# Inventory Management
 
 > Inventory management created in **Next.js** and **Redux**
 
