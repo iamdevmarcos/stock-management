@@ -11,8 +11,6 @@ import {
   Input,
   Select,
   Button,
-  NumberInput,
-  NumberInputField,
 } from "@chakra-ui/react";
 
 import { useDispatch } from "react-redux";
@@ -21,7 +19,8 @@ import { insert } from "../store/slices/productSlice";
 import Menu from "../components/Menu";
 import { getCurrentDate } from "../utils/dateUtil";
 
-import { useMask } from "../hooks/useMask";
+import MaskedInput from "react-text-mask";
+import priceMask from "../data/priceMask";
 
 export default function Add() {
   const [productName, setProductName] = useState("");
@@ -31,8 +30,6 @@ export default function Add() {
   const dispatch = useDispatch();
   const currentDate = getCurrentDate();
   const router = useRouter();
-
-  const mask = useMask();
 
   const handleAddProduct = () => {
     if (productName !== "" && productCategory !== "" && productValue !== "") {
@@ -98,9 +95,9 @@ export default function Add() {
 
           <FormControl>
             <FormLabel htmlFor="product-price">Valor:</FormLabel>
-            <span>teste: {mask.toBRL(productValue)}</span>
-            <Input
-              type="number"
+            <MaskedInput
+              mask={priceMask}
+              type="text"
               id="product-price"
               placeholder="Valor total da transação"
               value={productValue}
