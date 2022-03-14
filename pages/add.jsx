@@ -95,8 +95,15 @@ export default function Add() {
 
           <FormControl>
             <FormLabel htmlFor="product-price">Valor:</FormLabel>
-            <MaskedInput
+            {/* <MaskedInput
               mask={priceMask}
+              type="text"
+              id="product-price"
+              placeholder="Valor total da transação"
+              value={productValue}
+              onChange={(e) => setProductValue(e.target.value)}
+            /> */}
+            <Input
               type="text"
               id="product-price"
               placeholder="Valor total da transação"
